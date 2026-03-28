@@ -9,24 +9,27 @@ struct Pessoa{
 
 
 int main(){
-    const int numPessoas = 1;
-    struct Pessoa clienteA;
+    const int numPessoas = 3;
+    struct Pessoa clienteA[3];
 
-
+    printf("\n\nCadastre os dados dos Clientes:\n\n");
     for(int i = 0; i < numPessoas; i++){
-        printf("Cadastre os dados dos Clientes:\n");
-
+        printf("\n\nCliente %d:\n", i+1);
         printf("Nome:");
-        scanf(" %[^\n]s", clienteA.nome );
+        scanf(" %49[^\n]", clienteA[i].nome);
         printf("Idade:");
-        scanf("%d", clienteA.idade);
+        scanf("%d", &clienteA[i].idade);
         printf("Altura:");
-        scanf("%f", clienteA.altura);
+        scanf("%f", &clienteA[i].altura);
     }
 
-    printf("Nome: %s\n", clienteA.nome);
-    printf("Idade: %d\n", clienteA.idade);
-    printf("Altura: %f", clienteA.altura);
+    printf("\n\nDados dos clientes cadastrado:\n\n");
+    for(int i = 0; i < 3; i++){
+        printf("\n\nCliente %d\n", i+1);
+        printf("Nome: %s\n", clienteA[i].nome);
+        printf("Idade: %d\n", clienteA[i].idade);
+        printf("Altura: %0.2f", clienteA[i].altura);
+    }
     
     return 0;
 }
